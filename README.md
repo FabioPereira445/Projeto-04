@@ -37,7 +37,7 @@
 
 <h2 id="introducao">Introdução</h2>
 <p>Imagine poder coletar dados em tempo real de conversas no Telegram e transformar essas informações em insights valiosos. O projeto "Pipeline de Dados com Telegram" tem exatamente esse objetivo: construir um pipeline de dados que coleta mensagens do Telegram, as armazena, processa e apresenta de maneira organizada e acessível. Utilizando uma série de serviços da AWS, o projeto demonstra como ingerir, processar e apresentar dados de forma eficiente e escalável.</p>
-
+<img src="images/introducao_4.1.png">
 <h2 id="ingestao">1. Ingestão</h2>
 
 <h3 id="aws-s3">1.1. AWS S3</h3>
@@ -54,7 +54,7 @@
 
 <hr>
 <h4>Imagem 1: Arquitetura do Pipeline de Dados com Telegram</h4>
-<img src="https://colab.research.google.com/drive/1D6QTkADULTrSfjrmcMyr3LmccMvRZIV#scrollTo=TwA9AmeSInp8&printMode=true" alt="Arquitetura do Pipeline de Dados com Telegram">
+<img src="images/introducao_4.1.png">
 <hr>
 
 <h2 id="etl">2. ETL (Extract, Transform, Load)</h2>
