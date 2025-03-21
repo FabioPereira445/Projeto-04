@@ -58,15 +58,15 @@
 <img src="images/telegram1.png">
 <img src="images/telegram2.png">
 <hr>
-<h4>Imagem 1: Arquitetura do Pipeline de Dados com Telegram</h4>
-<img src="images/introducao_4.1.png">
+<h4> Arquitetura do Pipeline de Dados com Telegram</h4>
+<img src="images/Arquitetura do Pipeline.jpg">
 <hr>
 
 <h2 id="etl">2. ETL (Extract, Transform, Load)</h2>
 
 <h3 id="aws-s3-2">2.1. AWS S3</h3>
 <p>Nesta etapa, criamos um novo bucket no AWS S3 chamado <code>mod-42-ebac-datalake-enriched</code> para armazenar os dados enriquecidos, que já passaram por um processo de transformação e estão prontos para análise.</p>
-<img src="  ">
+<img src="images/S3-ENRICHED.png">
 <h3 id="aws-lambda-2">2.2. AWS Lambda</h3>
 <p>Desenvolvemos uma segunda função Lambda chamada <code>mod-42-ebac-datalake-enriched2</code>. Esta função processa as mensagens JSON do bucket de dados crus, transforma os dados e os armazena no bucket de dados enriquecidos no formato Parquet.</p>
 <img src="images/2_2AWS Lambda.png">
@@ -76,7 +76,7 @@
 
 <hr>
 <h4>Imagem 2: Estrutura do Bucket no S3 para dados enriquecidos</h4>
-<img src="URL_da_Imagem" alt="Estrutura do Bucket no S3 para dados enriquecidos">
+<img src="images/S3-ENRICHED.png">
 <hr>
 
 <h2 id="apresentacao">3. Apresentação</h2>
