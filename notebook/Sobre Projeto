@@ -1,0 +1,90 @@
+# Projeto: Análise de Dados com Telegram e AWS
+
+Este projeto explora o uso de APIs, serviços de nuvem da AWS e processamento de dados utilizando as melhores práticas do ciclo ETL (Extração, Transformação e Carregamento).
+
+---
+
+## 1ª Parte: Telegram
+
+- **Criação de bot no Telegram:**
+  - Criei uma conta no Telegram e configurei um bot para interagir com um grupo criado exclusivamente para este projeto.
+- **Configuração do grupo:**
+  - Tornei o bot administrador do grupo e desativei a opção de ser adicionado a outros grupos.
+- **Envio e consumo de mensagens:**
+  - Enviei mensagens de diversos formatos (texto, imagem, vídeo, áudio, etc.) e consumi essas mensagens utilizando a API de bots do Telegram.
+- **Documentação da API:**
+  - A documentação oficial utilizada está disponível em [Telegram Bots API](https://core.telegram.org/bots/api).
+
+---
+
+## 2ª Parte: Ingestão
+
+- **Armazenamento de dados crus:**
+  - Criei um bucket no **AWS S3** com o sufixo `-raw` para armazenar dados crus das mensagens.
+- **Função no AWS Lambda:**
+  - Desenvolvi uma função no **AWS Lambda** para salvar as mensagens recebidas no formato JSON dentro do bucket.
+- **Permissões de interação:**
+  - Configurei permissões no **AWS IAM** para permitir a interação entre AWS Lambda e S3.
+- **Criação da API no API Gateway:**
+  - Criei uma API utilizando o **AWS API Gateway**, conectando-a à função do Lambda.
+- **Configuração do webhook do bot:**
+  - Configurei o webhook do bot Telegram utilizando o método `setWebhook` da API, direcionando-o para a API criada no Gateway.
+
+---
+
+## 3ª Parte: ETL
+
+- **Armazenamento de dados enriquecidos:**
+  - Criei um bucket no **AWS S3** com o sufixo `-enriched` para armazenar dados enriquecidos.
+- **Função Lambda para processamento:**
+  - Desenvolvi outra função no AWS Lambda para processar os dados JSON:
+    - Transformei os dados em arquivos **PARQUET**, particionados por dia.
+    - Configurei uma camada para usar o pacote Python **PyArrow**.
+- **Automatização com AWS Event Bridge:**
+  - Configurei uma regra no **AWS Event Bridge** para executar a função Lambda automaticamente todos os dias à meia-noite (GMT-3).
+
+---
+
+## 4ª Parte: Apresentação
+
+- **Criação de tabela no AWS Athena:**
+  - Configurei uma tabela no **AWS Athena** para apontar para os dados enriquecidos armazenados no bucket.
+- **Carregamento de partições:**
+  - Executei o comando `MSCK REPAIR TABLE` para carregar as partições automaticamente.
+- **Exploração dos dados:**
+  - Realizei consultas SQL no Athena para explorar e analisar os dados processados.
+
+---
+
+## 5ª Parte: Storytelling
+
+- **Apresentação do projeto:**
+  - Organizei e documentei todo o projeto utilizando práticas de storytelling. Estruturei cada etapa para que fosse claro e objetivo.
+- **Compartilhamento:**
+  - Preparei o conteúdo final no Google Colab e compartilhei com a equipe de tutoria da EBAC.
+
+---
+
+## Ferramentas Utilizadas
+
+- **Telegram Bots API:** Para interagir com as mensagens do bot.
+- **AWS S3:** Armazenamento de dados crus e enriquecidos.
+- **AWS Lambda:** Processamento e transformação dos dados.
+- **AWS API Gateway:** Integração das funções Lambda com a API.
+- **AWS Athena:** Exploração dos dados processados via consultas SQL.
+- **PyArrow:** Conversão e manipulação de dados em formato PARQUET.
+
+---
+
+## Links Relevantes
+
+- [Documentação do Telegram Bots API](https://core.telegram.org/bots/api)
+- [PyArrow no Python](https://arrow.apache.org/docs/python/)
+- [AWS Lambda](https://aws.amazon.com/lambda/)
+
+---
+
+## Conclusão
+
+Este projeto me permitiu explorar diferentes ferramentas e serviços para desenvolver um fluxo completo de processamento de dados. A integração entre Telegram e AWS demonstrou ser uma solução robusta para ingestão, transformação e análise de dados.
+
