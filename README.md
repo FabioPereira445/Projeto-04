@@ -8,7 +8,7 @@
 <body>
 
 <h1>Pipeline de Dados com Telegram</h1>
-
+<img src="images/capaproj_telegram (1).jpg" alt="Uma bela paisagem" width="1000" height="500" title="Clique para ampliar">
 <h2>Índice</h2>
 <ol>
     <li><a href="#introducao">Introdução</a></li>
